@@ -1,1 +1,35 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #e3e6d2;
+  color: #1b1b1b;
+}
+
+header,
+footer {
+  background-color: #4529f0;
+  color: #e3e6d2;
+  width: 100%;
+}
+
+header {
+  position: absolute;
+  top: 0px;
+  height: 10%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  height: 5%;
+}
+/*# sourceMappingURL=styles.css.map */

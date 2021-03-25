@@ -1,0 +1,41 @@
+$primaryColor_1: #4529f0;
+$primaryColor_2: #e3e6d2;
+$primaryTextColor: #1b1b1b;
+$secondaryTextColor: #4d4d4d;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: $primaryColor_2;
+	color: $primaryTextColor;
+}
+
+header,
+footer {
+	background-color: $primaryColor_1;
+	color: $primaryColor_2;
+    width: 100%;
+
+}
+
+header {
+    position: absolute;
+	top: 0px;
+    height: 10%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    height: 5%;
+}
+
+
