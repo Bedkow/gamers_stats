@@ -7,11 +7,23 @@
 
 html, body {
   height: 100%;
+  width: 100%;
 }
 
 body {
   background-color: #1B2838;
   color: #66C0F4;
+  font-family: 'VT323', monospace;
+}
+
+#main_content {
+  width: 80%;
+  height: 80%;
+  margin: 20px auto 20px auto;
+  block-size: -webkit-fit-content;
+  block-size: -moz-fit-content;
+  block-size: fit-content;
+  padding-bottom: 80px;
 }
 
 header,
@@ -19,17 +31,40 @@ footer {
   background-color: #171A21;
   color: #66C0F4;
   width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: initial;
 }
 
 header {
-  position: absolute;
   top: 0px;
-  height: 10%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
-  height: 5%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#header_title {
+  padding: 1rem;
+}
+
+#footer_cred {
+  padding: 1rem;
 }
 /*# sourceMappingURL=styles.css.map */
