@@ -67,4 +67,10 @@ footer {
 #footer_cred {
   padding: 1rem;
 }
+
+.footer_pic {
+  height: 30px;
+  width: 30px;
+  margin: 0 5px;
+}
 /*# sourceMappingURL=styles.css.map */
