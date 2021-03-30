@@ -28,6 +28,7 @@ body {
     margin: 20px auto 20px auto;
     block-size: fit-content;
     padding-bottom: 80px;
+    // padding-top: 30px;
 }
 
 header,
@@ -47,12 +48,15 @@ header {
     // position: absolute;
 	top: 0px;
     height: fit-content;
+    // box-shadow: 0px 5px 15px 15px $primaryColor_1;
+
 }
 
 footer {
     position: fixed;
     bottom: 0px;
     height: fit-content;
+    // box-shadow: 5px 0px 15px 15px $primaryColor_1;
 }
 
 #header_title {
@@ -60,17 +64,22 @@ footer {
 }
 
 #footer_cred {
-    padding: 1rem
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.footer_pic {
+.footer_pic1 {
     height: 30px;
     width: 30px;
-    margin: 0 5px;
+    margin: 0 10px 0 20px;
 }
 
-// h2 {
-//     // position: relative;
-// }
-
-
+.footer_pic2 {
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+}
