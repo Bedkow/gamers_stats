@@ -50,7 +50,10 @@ const all_info = document.querySelector(".game_info");
 
 const renderGame = function (data) {
 	const html = `
-    <img class="game_art" src=${data.results[0].background_image}></div>
+    <div class="imgtitle">
+    <img class="game_art" src=${data.results[0].background_image}>
+    <div class="art_title">${data.results[0].name}</div>
+    </div>
     <div class="info_container">
     <div>Name: ${data.results[0].name}</div>
     <div>Released: ${data.results[0].released}</div>

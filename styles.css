@@ -97,6 +97,7 @@ input:focus {
 
 form {
   margin: auto;
+  margin-bottom: 20px;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
   display: -webkit-box;
@@ -165,5 +166,44 @@ input[type=submit]:active {
 
 input[type=submit]:hover {
   cursor: pointer;
+}
+
+.imgtitle {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+
+.game_art {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  border: #66C0F4 3px solid;
+}
+
+.game_art:hover {
+  opacity: 1;
+}
+
+.game_art:hover ~ .art_title {
+  display: none;
+}
+
+.art_title {
+  display: block;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 30%);
+          transform: translate(-50%, 30%);
+  font-size: 50px;
+}
+
+.info_container {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=styles.css.map */
