@@ -1,3 +1,16 @@
+// date stuff 
+
+/*
+
+let [currentMonth, currentDate, currentYear] = new Date().toLocaleDateString("en-US").split("/");
+
+let currentDate = `${currentDate}-${currentMonth}-${currentYear}`;
+
+console.log(currentDate);
+
+
+*/
+
 // calling api for the token // IGDB - changed to RAWG
 
 // const request = new XMLHttpRequest();
@@ -42,34 +55,33 @@ fetch(
 	.then((data) => console.log(data));
 
 const btn = document.querySelector(".input_btn");
-// const art = document.querySelector('.game_art');
-// const info = document.querySelector('.info_container');
-// const screenshots = document.querySelector('.screenshots_container');
-// const stores = document.querySelector('.stores');
 const all_info = document.querySelector(".game_info");
 
 const renderGame = function (data) {
+    //get current time
+    let [currentMonth, currentDate, currentYear] = new Date().toLocaleDateString("en-US").split("/");
+
+    //get release time
+
+    let releaseTime = data.results[0].released;
+    let [releaseYear, releaseMonth, releaseDay] = releaseTime.split('-');
+
+    //calc the difference
+
+    let daysPassed = currentDate - releaseDay;
+    let monthsPassed = currentMonth - releaseMonth;
+    let yearsPassed = currentYear - releaseYear;
+
+    let totalTimePassed = `${daysPassed} days, ${monthsPassed} months, ${yearsPassed} years ago)`
+
 	const html = `
     <div class="imgtitle">
     <img class="game_art" src=${data.results[0].background_image}>
     <div class="art_title">${data.results[0].name}</div>
     </div>
     <div class="info_container">
-    <div>Name: ${data.results[0].name}</div>
-    <div>Released: ${data.results[0].released}</div>
-    <div>Playtime?</div>
-    <div>Twitch count?</div>
-    <div>YT count?</div>
-    <div>Platforms:</div>
-    <div>Requirements:</div>
-    <div>Metacritic link:</div>
-    <div>Screenshots:</div>
-    <div>Stores:</div>
-    <div></div>
-    </div>
-    <div class="screenshots_container"></div>
-    <div class="stores"></div>
-    `;
+    <div>Released: ${data.results[0].released} <br> ${totalTimePassed}</div>
+ `;
 
 	all_info.insertAdjacentHTML("beforeend", html);
 };
