@@ -1,4 +1,12 @@
-// date stuff 
+// date stuff
+
+// let dayjs = require('dayjs');
+// dayjs().format()
+
+// import dayJS from 'E:/Programming/gamers_stats/node_modules/dayjs/plugin/relativeTime.js';
+
+// var relativeTime = require('dayjs/plugin/relativeTime');
+// dayjs.extend(relativeTime);
 
 /*
 
@@ -58,11 +66,16 @@ const btn = document.querySelector(".input_btn");
 const all_info = document.querySelector(".game_info");
 
 const renderGame = function (data) {
-    //get current time
-    let [currentMonth, currentDate, currentYear] = new Date().toLocaleDateString("en-US").split("/");
+	//get current time
+	let [currentMonth, currentDate, currentYear] = new Date()
+		.toLocaleDateString("en-US")
+		.split("/");
 
-    //get release time
-
+    //
+	var relativeTime = require("dayjs/plugin/relativeTime");
+	dayjs.extend(relativeTime);
+	//get release time
+	/*
     let releaseTime = data.results[0].released;
     let [releaseYear, releaseMonth, releaseDay] = releaseTime.split('-');
 
@@ -73,6 +86,11 @@ const renderGame = function (data) {
     let yearsPassed = currentYear - releaseYear;
 
     let totalTimePassed = `${daysPassed} days, ${monthsPassed} months, ${yearsPassed} years ago)`
+
+*/
+	let totalTimePassed = dayjs(
+		`${currentYear}-${currentMonth}-${currentDate}`
+	).fromNow();
 
 	const html = `
     <div class="imgtitle">
