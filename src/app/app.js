@@ -33,9 +33,9 @@ const renderGame = function (data) {
 
 // get total time passed
 
-	let totalTimePassed = dayjs(
-		`${currentYear}-${currentMonth}-${currentDate}`
-	).fromNow();
+	// let totalTimePassed = dayjs(
+	// 	`${currentYear}-${currentMonth}-${currentDate}`
+	// ).fromNow();
 
 	const html = `
     <div class="imgtitle">
@@ -43,7 +43,7 @@ const renderGame = function (data) {
     <div class="art_title">${data.results[0].name}</div>
     </div>
     <div class="info_container">
-    <div>Released: ${data.results[0].released} <br> ${totalTimePassed}</div>
+    <div>Released: ${data.results[0].released} <br></div>
  `;
 
 	all_info.insertAdjacentHTML("beforeend", html);
