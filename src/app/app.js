@@ -1,3 +1,5 @@
+export const app = function() {
+
 /*
 details of the game - 
 1: game art
@@ -63,3 +65,5 @@ const getGameData = function (game) {
 btn.addEventListener("click", function () {
 	getGameData("valheim");
 });
+
+}

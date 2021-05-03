@@ -1,0 +1,33 @@
+{
+  "name": "gamers_stats",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "Using:\r - RAWG API",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bedkow/gamers_stats.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bedkow/gamers_stats/issues"
+  },
+  "homepage": "https://github.com/Bedkow/gamers_stats#readme",
+  "devDependencies": {
+    "css-loader": "^5.2.4",
+    "sass": "^1.32.12",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.4",
+    "node-sass": "^5.0.0"
+  }
+}

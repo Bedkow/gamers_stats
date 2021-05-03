@@ -1,6 +1,6 @@
-$primaryColor_1: #171A21;
-$primaryColor_2: #1B2838;
-$primaryTextColor: #66C0F4;
+$primaryColorOne: rgb(23, 26, 33);
+$primaryColorTwo: rgb(27, 40, 56);
+$primaryTextColor: rgb(102, 192, 244);
 $secondaryTextColor: rgba(102,192,244,0.5);
 
 * {
@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-	background-color: $primaryColor_2;
+	background-color: $primaryColorTwo;
 	color: $primaryTextColor;
     font-family: 'VT323', monospace;
     // display: inline-block;
@@ -33,7 +33,7 @@ body {
 
 header,
 footer {
-	background-color: $primaryColor_1;
+	background-color: $primaryColorOne;
 	color: $primaryTextColor;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
@@ -115,7 +115,7 @@ form {
 }
 
 input[type=submit] {
-    background-color: $primaryColor_1;
+    background-color: $primaryColorOne;
     color: $primaryTextColor;
     height: 30px;
     width: 100px;

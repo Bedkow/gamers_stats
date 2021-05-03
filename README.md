@@ -2,5 +2,8 @@
 
 Using:
 - RAWG API
+- Day.js library (https://day.js.org/en/)
+- Webpack 5
+
 
 
