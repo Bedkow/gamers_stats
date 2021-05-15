@@ -1,3 +1,8 @@
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+dayjs.extend(relativeTime);
+
+console.log(dayjs().to(dayjs('1990-01-01'))); 
 /*
 details of the game - 
 1: game art
@@ -8,13 +13,6 @@ details of the game -
 bottom: stores that sell the game - https://api.rawg.io/api/games/{game_pk}/stores
 
 */
-
-// calling RAWG using promises
-// fetch(
-// 	'https://api.rawg.io/api/games?key=bcfe18881b8345c89b572cdb49c10987&search_precise=true&search="valheim"'
-// )
-// 	.then((response) => response.json())
-// 	.then((data) => console.log(data));
 
 const btn = document.querySelector(".input_btn");
 const all_info = document.querySelector(".game_info");

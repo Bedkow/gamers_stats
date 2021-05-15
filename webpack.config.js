@@ -3,6 +3,9 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const dayjs = require('dayjs');
+// const relativeTime = require('dayjs/plugin/relativeTime');
+// dayjs.extend(relativeTime);
 
 module.exports = {
     entry: './src/index.js',
