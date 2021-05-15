@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  width: 100%; }
+
+body {
+  background-color: #1b2838;
+  color: #66c0f4;
+  font-family: 'VT323', monospace; }
+
+#main_content {
+  width: 80%;
+  height: 80%;
+  margin: 20px auto 20px auto;
+  block-size: fit-content;
+  padding-bottom: 80px; }
+
+header,
+footer {
+  background-color: #171a21;
+  color: #66c0f4;
+  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: initial; }
+
+header {
+  top: 0px;
+  height: fit-content; }
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  height: fit-content; }
+
+#header_title {
+  padding: 1rem; }
+
+#footer_cred {
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.footer_pic1 {
+  height: 30px;
+  width: 30px;
+  margin: 0 10px 0 20px; }
+
+.footer_pic2 {
+  height: 30px;
+  width: 30px;
+  margin: 0 10px; }
+
+input:focus {
+  outline: none; }
+
+form {
+  margin: auto;
+  margin-bottom: 20px;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#gameName {
+  background-color: #2A475E;
+  color: #66c0f4;
+  height: 30px;
+  width: 250px;
+  font-family: 'Press Start 2P', cursive;
+  border: 3px inset rgba(102, 192, 244, 0.5); }
+
+::placeholder {
+  color: rgba(102, 192, 244, 0.5);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  text-align: center; }
+
+input[type=submit] {
+  background-color: #171a21;
+  color: #66c0f4;
+  height: 30px;
+  width: 100px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  margin-left: 5px;
+  padding: 2px;
+  border: 3px outset rgba(102, 192, 244, 0.5); }
+
+input[type=submit]:active {
+  border: 3px inset rgba(102, 192, 244, 0.5); }
+
+input[type=submit]:hover {
+  cursor: pointer; }
+
+.imgtitle {
+  position: relative;
+  width: 100%;
+  height: 100px; }
+
+.game_art {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  border: #66c0f4 3px solid; }
+
+.game_art:hover {
+  opacity: 1; }
+
+.game_art:hover ~ .art_title {
+  display: none; }
+
+.art_title {
+  display: block;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  font-size: 50px; }
+
+.info_container {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
