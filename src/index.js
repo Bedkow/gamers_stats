@@ -2,7 +2,6 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
-console.log(dayjs().to(dayjs('1990-01-01'))); 
 /*
 details of the game - 
 1: game art
@@ -16,6 +15,8 @@ bottom: stores that sell the game - https://api.rawg.io/api/games/{game_pk}/stor
 
 const btn = document.querySelector(".input_btn");
 const all_info = document.querySelector(".game_info");
+const inputForm = document.querySelector('#inputForm');
+const gameName = document.querySelector('#gameName')
 
 const renderGame = function (data) {
 	//get current time
@@ -40,7 +41,7 @@ const renderGame = function (data) {
     <div class="art_title">${data.results[0].name}</div>
     </div>
     <div class="info_container">
-    <div>Released: ${data.results[0].released} <br></div>
+    <div>Released: ${data.results[0].released} (${dayjs().to(dayjs(releaseTime))})<br></div>
  `;
 
 	all_info.insertAdjacentHTML("beforeend", html);
@@ -58,5 +59,6 @@ const getGameData = function (game) {
 };
 
 btn.addEventListener("click", function () {
-	getGameData("valheim");
+	let gameName = document.querySelector('#gameName').value;
+	getGameData(gameName);
 });
