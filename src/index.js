@@ -18,34 +18,16 @@ const all_info = document.querySelector(".game_info");
 const inputForm = document.querySelector('#inputForm');
 const gameName = document.querySelector('#gameName')
 
-const renderGame = function (data) {
-	//get current time
-	let [currentMonth, currentDate, currentYear] = new Date()
-		.toLocaleDateString("en-US")
-		.split("/");
+// action on click -> getting name and putting it into getGameData function
 
-	// //get release time
+btn.addEventListener("click", function () {
+	all_info.innerHTML = ``;
+	let gameName = document.querySelector('#gameName').value;
+	getGameData(gameName);
+});
 
-	let releaseTime = data.results[0].released;
-	let [releaseYear, releaseMonth, releaseDay] = releaseTime.split("-");
 
-	// get total time passed
-
-	// let totalTimePassed = dayjs(
-	// 	`${currentYear}-${currentMonth}-${currentDate}`
-	// ).fromNow();
-
-	const html = `
-    <div class="imgtitle">
-    <img class="game_art" src=${data.results[0].background_image}>
-    <div class="art_title">${data.results[0].name}</div>
-    </div>
-    <div class="info_container">
-    <div>Released: ${data.results[0].released} (${dayjs().to(dayjs(releaseTime))})<br></div>
- `;
-
-	all_info.insertAdjacentHTML("beforeend", html);
-};
+// fetching game's data, putting it into renderGame function
 
 const getGameData = function (game) {
 	fetch(
@@ -58,7 +40,31 @@ const getGameData = function (game) {
 		.catch((err) => console.log(`error: ${err}`));
 };
 
-btn.addEventListener("click", function () {
-	let gameName = document.querySelector('#gameName').value;
-	getGameData(gameName);
-});
+
+// rendering html with fetched data
+
+const renderGame = function (data) {
+
+	// get current time
+	let [currentMonth, currentDate, currentYear] = new Date()
+		.toLocaleDateString("en-US")
+		.split("/");
+
+	// get release time
+
+	let releaseTime = data.results[0].released;
+	let [releaseYear, releaseMonth, releaseDay] = releaseTime.split("-");
+
+	// render html with data and insert it into the DOM
+
+	let html = `
+    <div class="imgtitle">
+    <img class="game_art" src=${data.results[0].background_image}>
+    <div class="art_title">${data.results[0].name}</div>
+    </div>
+    <div class="info_container">
+    <div>Released: ${data.results[0].released} (${dayjs().to(dayjs(releaseTime))})<br></div>
+ `;
+
+	all_info.insertAdjacentHTML("beforeend", html);
+};
