@@ -18,6 +18,8 @@ const all_info = document.querySelector(".game_info");
 const inputForm = document.querySelector('#inputForm');
 const gameName = document.querySelector('#gameName')
 
+// get game info by id
+
 // action on click -> getting name and putting it into getGameData function
 
 btn.addEventListener("click", function () {
@@ -35,8 +37,20 @@ const getGameData = function (game) {
 	)
 		.then((response) => response.json())
 		.then((data) => {
-			renderGame(data);
+			renderGame(data); // here should get ID and then pass it to renderGame()
 		})
+			//@@@@
+			// console.log(data);
+			//@@@@
+
+			// return id
+		// 	return fetch(`https://api.rawg.io/api/games?key=3a4e64a027444e258be25283e5bd967a&${data.results[0].id}`)
+		// })
+		// .then(response => response.json())
+		// .then(data => {
+		// 	console.log(data);
+		// })
+
 		.catch((err) => console.log(`error: ${err}`));
 };
 
@@ -64,6 +78,8 @@ const renderGame = function (data) {
     </div>
     <div class="info_container">
     <div>Released: ${data.results[0].released} (${dayjs().to(dayjs(releaseTime))})<br></div>
+	<div>${data.results[0].description}
+	<br></div>
  `;
 
 	all_info.insertAdjacentHTML("beforeend", html);
