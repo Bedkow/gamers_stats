@@ -1,9 +1,8 @@
-### An app showing statistics for the desired videogame.
+### An app showing information/stats for the desired videogame.
 
 Using:
-- RAWG API
+- Vanilla JS
+- Sass
+- RAWG API (https://rawg.io/apidocs)
 - Day.js library (https://day.js.org/en/)
 - Webpack 5
-
-
-

@@ -11,6 +11,9 @@ details of the game -
 
 bottom: stores that sell the game - https://api.rawg.io/api/games/{game_pk}/stores
 
+
+*if time allows it - some SteamWorks stats
+
 */
 
 const btn = document.querySelector(".input_btn");
@@ -22,7 +25,7 @@ const gameName = document.querySelector('#gameName')
 
 // action on click -> getting name and putting it into getGameData function
 
-btn.addEventListener("click", function () {
+inputForm.addEventListener("submit", function () {
 	all_info.innerHTML = ``;
 	let gameName = document.querySelector('#gameName').value;
 	getGameData(gameName);
@@ -37,19 +40,8 @@ const getGameData = function (game) {
 	)
 		.then((response) => response.json())
 		.then((data) => {
-			renderGame(data); // here should get ID and then pass it to renderGame()
+			renderGame(data); 
 		})
-			//@@@@
-			// console.log(data);
-			//@@@@
-
-			// return id
-		// 	return fetch(`https://api.rawg.io/api/games?key=3a4e64a027444e258be25283e5bd967a&${data.results[0].id}`)
-		// })
-		// .then(response => response.json())
-		// .then(data => {
-		// 	console.log(data);
-		// })
 
 		.catch((err) => console.log(`error: ${err}`));
 };
@@ -59,10 +51,14 @@ const getGameData = function (game) {
 
 const renderGame = function (data) {
 
-	// get current time
-	let [currentMonth, currentDate, currentYear] = new Date()
-		.toLocaleDateString("en-US")
-		.split("/");
+	console.log(data.results[0].id)
+
+	//fetching by ID test
+	fetch(`https://api.rawg.io/api/games/${data.results[0].id}?key=3a4e64a027444e258be25283e5bd967a`)
+		.then(response => response.json())
+		.then(data => {
+			console.log(data);
+		})
 
 	// get release time
 
@@ -78,7 +74,7 @@ const renderGame = function (data) {
     </div>
     <div class="info_container">
     <div>Released: ${data.results[0].released} (${dayjs().to(dayjs(releaseTime))})<br></div>
-	<div>${data.results[0].description}
+	<div>Dev_ID : ${data.results[0].id}
 	<br></div>
  `;
 
