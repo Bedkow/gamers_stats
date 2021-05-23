@@ -3,14 +3,15 @@
   padding: 0;
   box-sizing: border-box; }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%; }
 
 body {
   background-color: #1b2838;
   color: #66c0f4;
-  font-family: 'VT323', monospace; }
+  font-family: "VT323", monospace; }
 
 #main_content {
   width: 80%;
@@ -24,7 +25,7 @@ footer {
   background-color: #171a21;
   color: #66c0f4;
   width: 100%;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -67,41 +68,41 @@ input:focus {
 form {
   margin: auto;
   margin-bottom: 20px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center; }
 
 #gameName {
-  background-color: #2A475E;
+  background-color: #2a475e;
   color: #66c0f4;
   height: 30px;
   width: 250px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   border: 3px inset rgba(102, 192, 244, 0.5); }
 
 ::placeholder {
   color: rgba(102, 192, 244, 0.5);
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   font-size: 0.6rem;
   text-align: center; }
 
-input[type=submit] {
+input[type="submit"] {
   background-color: #171a21;
   color: #66c0f4;
   height: 30px;
   width: 100px;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   font-size: 0.6rem;
   margin-left: 5px;
   padding: 2px;
   border: 3px outset rgba(102, 192, 244, 0.5); }
 
-input[type=submit]:active {
+input[type="submit"]:active {
   border: 3px inset rgba(102, 192, 244, 0.5); }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   cursor: pointer; }
 
 .imgtitle {
@@ -134,4 +135,15 @@ input[type=submit]:hover {
 .info_container {
   margin-top: 20px;
   margin-bottom: 20px; }
+
+.screenshots {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.screenshots img {
+  max-width: 900px;
+  margin: 10px 0px;
+  border: #66c0f4 3px solid; }
 
