@@ -20,15 +20,12 @@ const btn = document.querySelector(".input_btn");
 const all_info = document.querySelector(".game_info");
 const inputForm = document.querySelector("#inputForm");
 const gameName = document.querySelector("#gameName");
-// const screenshotsContainer = document.querySelector(".screenshots");
 
 // action on click -> getting name and putting it into getGameData function
 inputForm.addEventListener("submit", function () {
 	all_info.innerHTML = ``;
 	let gameName = document.querySelector("#gameName").value;
 	getGameData(gameName).then((data) => renderGame(data));
-	//call func to insert screenshots
-	// insertScreenshots(gameID);
 });
 
 // fetching game's data, putting it into renderGame function
@@ -43,32 +40,6 @@ const getGameData = function (game) {
 
 		.catch((err) => console.log(`error: ${err}`));
 };
-
-// getGameData().then(data => renderGame(data));
-
-// insert screenshots into html func
-
-/*
-const insertScreenshots = function (gameID) {
-	return fetch(
-		`https://api.rawg.io/api/games/${gameID}/screenshots?key=3a4e64a027444e258be25283e5bd967a`
-	)
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data); ////
-			let screenshotURL = [];
-			for (let i = 0; i <= data.results.length && i <= 4; i++) {
-				console.log(i); ///////////
-
-				screenshotURL.push(data.results[i].image);
-				let srcImgUrl = `<img src="${screenshotURL[i]}></img>"`;
-				return screenshotsContainer.insertAdjacentHTML("beforeend", srcImgUrl);
-			}
-
-			console.log(screenshotURL); ////
-		});
-};
-*/
 
 // rendering html with fetched data
 
@@ -119,6 +90,7 @@ const renderGame = function (data) {
 
 			all_info.insertAdjacentHTML("beforeend", html);
 
+			// insert screenshots into html
 			return fetch(
 				`https://api.rawg.io/api/games/${gameID}/screenshots?key=3a4e64a027444e258be25283e5bd967a`
 			)
@@ -132,28 +104,6 @@ const renderGame = function (data) {
 						image[i].src = data.results[i].image;
 						document.querySelector(".screenshots").appendChild(image[i]);
 					}
-
-					////
 				});
 		});
-	/*
-	return fetch(
-		`https://api.rawg.io/api/games/${gameID}/screenshots?key=3a4e64a027444e258be25283e5bd967a`
-	)
-		.then((response) => response.json())
-		.then((data) => {
-			var screenshotsContainer = document.querySelector(".screenshots");
-			console.log(data); ////
-			let screenshotURL = [];
-			for (let i = 0; i <= data.results.length && i <= 4; i++) {
-				console.log(i); ///////////
-
-				screenshotURL.push(data.results[i].image);
-				let srcImgUrl = `<img src="${screenshotURL[i]}></img>"`;
-				screenshotsContainer.insertAdjacentHTML("beforeend", srcImgUrl);
-			}
-
-			console.log(screenshotURL); ////
-		});
-	*/
 };
