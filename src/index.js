@@ -3,6 +3,9 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
+// API requires 1 fetch before responding for some reason
+fetch(`https://api.rawg.io/api/games/5?key=3a4e64a027444e258be25283e5bd967a`);
+//
 /*
 details of the game - 
 1: game art
@@ -55,7 +58,19 @@ const renderGame = function (data) {
 		.then((data) => {
 			console.log(data); // temp for DEV !!!
 
-			let releaseTime = data.released;
+			let releaseTime;
+			if (data.tba === true) {
+				releaseTime = "TBA";
+			} else {
+				releaseTime = `${data.released} (${dayjs().to(dayjs(data.released))})`;
+			}
+
+			let metacriticScore;
+			if (data.metacritic === null) {
+				metacriticScore = "Game not found on Metacritic";
+			} else {
+				metacriticScore = data.metacritic;
+			}
 
 			// render html with data and insert it into the DOM
 			let html = `
@@ -67,15 +82,12 @@ const renderGame = function (data) {
 				</div>
 
 				<div class="info_container">
-				<div class="released">Released: ${data.released} (${dayjs().to(
-				dayjs(releaseTime)
-			)})</div><br>
+				<div class="released">Released: ${releaseTime}</div><br>
 
 				<div class="description"> ${data.description}
 				</div><br>
 
-				<div class="metacritic"> Metacritic score: ${data.metacritic}
-				 <!-- fix: undefined when empty!!!!!!!!!!!!!!!!! -->
+				<div class="metacritic"> Metacritic score: ${metacriticScore}
 				</div><br>
 
 				<div class="platforms"> Platforms:
