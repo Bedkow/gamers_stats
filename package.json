@@ -1,45 +1,67 @@
 {
-	"name": "gamers_stats",
-	"version": "1.0.0",
-	"description": "Using:\r - RAWG API\r - Day.js library (https://day.js.org/en/)\r - Webpack 5",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "webpack",
-		"start": "webpack serve"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Bedkow/gamers_stats.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Bedkow/gamers_stats/issues"
-	},
-	"homepage": "https://github.com/Bedkow/gamers_stats#readme",
-	"devDependencies": {
-		"@babel/core": "^7.14.2",
-		"@babel/preset-env": "^7.14.2",
-		"babel-loader": "^8.2.2",
-		"clean-webpack-plugin": "^4.0.0-alpha.0",
-		"css-loader": "^5.2.4",
-		"dayjs": "^1.10.4",
-		"file": "^0.2.2",
-		"file-loader": "^6.2.0",
-		"handlebars": "^4.7.7",
-		"handlebars-loader": "^1.7.1",
-		"html-loader": "^2.1.2",
-		"html-webpack-plugin": "^5.3.1",
-		"loader": "^2.1.1",
-		"mini-css-extract-plugin": "^1.6.0",
-		"node-sass": "^6.0.0",
-		"sass-loader": "^11.1.0",
-		"style-loader": "^2.0.0",
-		"terser-webpack-plugin": "^5.1.2",
-		"webpack": "^5.37.0",
-		"webpack-cli": "^4.7.0",
-		"webpack-dev-server": "^3.11.2"
-	}
+  "name": "gamers_stats",
+  "version": "1.0.0",
+  "description": "1-page app showing info about a desired game",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve",
+    "lint": "eslint --fix src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bedkow/gamers_stats.git"
+  },
+  "keywords": [
+    "javascript",
+    "webpack",
+    "babel",
+    "eslint",
+    "stylelint",
+    "prettier",
+    "sass"
+  ],
+  "author": "Daniel Bednarek github.com/Bedkow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bedkow/gamers_stats/issues"
+  },
+  "homepage": "https://github.com/Bedkow/gamers_stats#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.14.2",
+    "@babel/eslint-parser": "^7.13.8",
+    "@babel/eslint-plugin": "^7.13.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+    "@babel/preset-env": "^7.14.2",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.4",
+    "dayjs": "^1.10.4",
+    "eslint": "^7.21.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-webpack-plugin": "^2.5.2",
+    "file": "^0.2.2",
+    "file-loader": "^6.2.0",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.1",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "loader": "^2.1.1",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^6.0.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.1.0",
+    "style-loader": "^2.0.0",
+    "stylelint": "^9.3.0",
+    "stylelint-config-sass-guidelines": "^5.1.0",
+    "stylelint-scss": "^3.19.0",
+    "stylelint-webpack-plugin": "^1.2.3",
+    "terser-webpack-plugin": "^5.1.2",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  }
 }
