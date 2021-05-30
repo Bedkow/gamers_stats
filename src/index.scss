@@ -190,3 +190,12 @@ input[type="submit"]:hover {
   margin: 10px 0;
   border: $primaryTextColor 3px solid;
 }
+
+.platforms {
+  display: flex;
+  justify-content: space-around;
+}
+
+// .platforms div {
+//   padding: 10px;
+// }
