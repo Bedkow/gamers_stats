@@ -194,8 +194,11 @@ input[type="submit"]:hover {
 .platforms {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-// .platforms div {
-//   padding: 10px;
-// }
+.platform-container {
+  flex-basis: 33.333333%;
+  //   padding: 20px;
+}

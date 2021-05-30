@@ -5,13 +5,10 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
-// API requires 1 fetch before responding for some reason
-fetch(`https://api.rawg.io/api/games/5?key=3a4e64a027444e258be25283e5bd967a`);
-//
 /*
 details of the game - 
 1: game art
-2: info - name, released, playtime, twitch count, youtube count, platforms > requirements, metacritic link
+2: info - name, released, platforms > requirements, metacritic
 
 3: screenshots
 
@@ -78,19 +75,20 @@ const renderGame = function (data) {
 				  </div>
   
 				  <div class="info-container">
-				  <div class="released">Released: ${releaseTime}</div><br>
+				  <div class="released"><h2>Released:</h2> ${releaseTime}</div><br>
   
 				  <div class="description"> ${data2.description}
 				  </div><br>
   
-				  <div class="metacritic"> Metacritic score: ${metacriticScore}
+				  <div class="metacritic"> <h2>Metacritic Score:</h2> ${metacriticScore}
+				  </div><br>
+	  			<div class="platforms-title"><h2>Platforms:</h2></div><br>
+				  <div class="platforms"> 
 				  </div><br>
   
-				  <div class="platforms"> Platforms:
-				  </div><br>
-  
-				  <div class="pc-requirements"> Requirements:<br> Minimum: xxx <br>
-				  Recommended: xxx <br>
+				  <div class="pc-requirements"> <h2>PC Requirements:</h2><br> 
+				  <h3>Minimum:</h3> xxx <br>
+				  <h3>Recommended:</h3> xxx <br>
 				  </div><br>
   
 				  <div class="screenshots">
@@ -123,6 +121,7 @@ const renderGame = function (data) {
           const platform = [];
           for (let a = 0; a !== data4.platforms.length; a++) {
             platform[a] = document.createElement('div');
+            platform[a].classList.add('platform-container');
             platform[a].innerHTML = data4.platforms[a].platform.name;
             document.querySelector('.platforms').appendChild(platform[a]);
           }
