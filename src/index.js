@@ -30,17 +30,23 @@ const getGameData = function (game) {
   )
     .then(response => response.json())
     .then(data => {
-      return data;
+      console.log(data); ///////////// dev
+      if (data.count === 0) {
+        alert(`Game ${game} not found!`);
+      } else {
+        return data;
+      }
     })
 
     .catch(err => console.log(`error: ${err}`));
 };
 
 // rendering html with fetched data
-
 const renderGame = function (data) {
   console.log(data.results[0].id); // temp for DEV !!!
   const gameID = data.results[0].id;
+  // let minRequirements = 'Not released on PC';
+  // let maxRequirements = 'Not released on PC';
   //fetching by ID test
   fetch(
     `https://api.rawg.io/api/games/${gameID}?key=3a4e64a027444e258be25283e5bd967a`,
@@ -65,35 +71,37 @@ const renderGame = function (data) {
         metacriticScore = data2.metacritic;
       }
 
-      // render html with data and insert it into the DOM
+      // // render html with data and insert it into the DOM
       const html = `
-				  <div class="imgtitle">
-  
-				  <img class="game-art" src=${data2.background_image}>
-  
-				  <div class="art-title">${data2.name}</div>
-				  </div>
-  
-				  <div class="info-container">
-				  <div class="released"><h2>Released:</h2> ${releaseTime}</div><br>
-  
-				  <div class="description"> ${data2.description}
-				  </div><br>
-  
-				  <div class="metacritic"> <h2>Metacritic Score:</h2> ${metacriticScore}
-				  </div><br>
-	  			<div class="platforms-title"><h2>Platforms:</h2></div><br>
-				  <div class="platforms"> 
-				  </div><br>
-  
-				  <div class="pc-requirements"> <h2>PC Requirements:</h2><br> 
-				  <h3>Minimum:</h3> xxx <br>
-				  <h3>Recommended:</h3> xxx <br>
-				  </div><br>
-  
-				  <div class="screenshots">
-				  </div><br>
-			  `;
+      	  <div class="imgtitle">
+
+      	  <img class="game-art" src=${data2.background_image}>
+
+      	  <div class="art-title">${data2.name}</div>
+      	  </div>
+
+      	  <div class="info-container">
+      	  <div class="released"><h2>Released:</h2> ${releaseTime}</div><br>
+
+      	  <div class="description"> ${data2.description}
+      	  </div><br>
+
+      	  <div class="metacritic"> <h2>Metacritic Score:</h2> ${metacriticScore}
+      	  </div><br>
+      		<div class="platforms-title"><h2>Platforms:</h2></div><br>
+      	  <div class="platforms">
+      	  </div><br>
+
+          <!--
+      	  <div class="pc-requirements"> <h2>PC Requirements:</h2><br>
+      	  <h3 class="min-req">Minimum:</h3> <br>
+      	  <h3 class="rec-req">Recommended:</h3> <br>
+      	  </div><br>
+          --> 
+
+      	  <div class="screenshots">
+      	  </div><br>
+        `;
 
       allInfo.insertAdjacentHTML('beforeend', html);
 
@@ -113,18 +121,37 @@ const renderGame = function (data) {
           }
         });
       //insert game's platforms
-      return fetch(
+      fetch(
         `https://api.rawg.io/api/games/${gameID}?key=3a4e64a027444e258be25283e5bd967a`,
       )
         .then(response => response.json())
         .then(data4 => {
           const platform = [];
+
           for (let a = 0; a !== data4.platforms.length; a++) {
             platform[a] = document.createElement('div');
             platform[a].classList.add('platform-container');
             platform[a].innerHTML = data4.platforms[a].platform.name;
             document.querySelector('.platforms').appendChild(platform[a]);
           }
+
+          // min and recommended PC requirements - works, but a lot of games are missing info and some give super long or unexpected results
+
+          // const minRequirements = document.createElement('p');
+          // const recRequirements = document.createElement('p');
+          // minRequirements.innerHTML = 'Not released on PC';
+          // recRequirements.innerHTML = 'Not released on PC';
+          // for (let b = 0; b !== data4.platforms.length; b++) {
+          //   //if platform == PC => insert min and rec req
+          //   if (data4.platforms[b].platform.name === 'PC') {
+          //     minRequirements.innerHTML =
+          //       data4.platforms[b].requirements.minimum;
+          //     recRequirements.innerHTML =
+          //       data4.platforms[b].requirements.recommended;
+          //   }
+          // }
+          // document.querySelector('.min-req').appendChild(minRequirements);
+          // document.querySelector('.rec-req').appendChild(recRequirements);
         });
     });
 };
