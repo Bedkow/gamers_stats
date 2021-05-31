@@ -129,7 +129,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:active {
-  border: 3px inset $secondaryTextColor; // @@@ test later
+  border: 3px inset $secondaryTextColor;
 }
 
 input[type="submit"]:hover {

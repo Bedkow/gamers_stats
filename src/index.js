@@ -30,7 +30,6 @@ const getGameData = function (game) {
   )
     .then(response => response.json())
     .then(data => {
-      console.log(data); ///////////// dev
       if (data.count === 0) {
         alert(`Game ${game} not found!`);
       } else {
@@ -43,18 +42,14 @@ const getGameData = function (game) {
 
 // rendering html with fetched data
 const renderGame = function (data) {
-  console.log(data.results[0].id); // temp for DEV !!!
   const gameID = data.results[0].id;
-  // let minRequirements = 'Not released on PC';
-  // let maxRequirements = 'Not released on PC';
-  //fetching by ID test
+
+  //fetching by ID
   fetch(
     `https://api.rawg.io/api/games/${gameID}?key=3a4e64a027444e258be25283e5bd967a`,
   )
     .then(response => response.json())
     .then(data2 => {
-      console.log(data2); // temp for DEV !!!
-
       let releaseTime;
       if (data2.tba === true) {
         releaseTime = 'TBA';
@@ -111,10 +106,8 @@ const renderGame = function (data) {
       )
         .then(response => response.json())
         .then(data3 => {
-          console.log(data3); ////
           const image = [];
           for (let i = 0; i <= data3.results.length && i <= 4; i++) {
-            console.log(i); ///////////
             image[i] = document.createElement('img');
             image[i].src = data3.results[i].image;
             document.querySelector('.screenshots').appendChild(image[i]);
