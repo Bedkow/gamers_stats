@@ -5,20 +5,6 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
-/*
-details of the game - 
-1: game art
-2: info - name, released, platforms > requirements, metacritic
-
-3: screenshots
-
-bottom: stores that sell the game - https://api.rawg.io/api/games/{game_pk}/stores
-
-
-*if time allows it - some SteamWorks stats
-
-*/
-
 const btn = document.querySelector('.input-btn');
 const allInfo = document.querySelector('.game-info');
 const inputForm = document.querySelector('.input-form');
@@ -127,24 +113,6 @@ const renderGame = function (data) {
             platform[a].innerHTML = data4.platforms[a].platform.name;
             document.querySelector('.platforms').appendChild(platform[a]);
           }
-
-          // min and recommended PC requirements - works, but a lot of games are missing info and some give super long or unexpected results
-
-          // const minRequirements = document.createElement('p');
-          // const recRequirements = document.createElement('p');
-          // minRequirements.innerHTML = 'Not released on PC';
-          // recRequirements.innerHTML = 'Not released on PC';
-          // for (let b = 0; b !== data4.platforms.length; b++) {
-          //   //if platform == PC => insert min and rec req
-          //   if (data4.platforms[b].platform.name === 'PC') {
-          //     minRequirements.innerHTML =
-          //       data4.platforms[b].requirements.minimum;
-          //     recRequirements.innerHTML =
-          //       data4.platforms[b].requirements.recommended;
-          //   }
-          // }
-          // document.querySelector('.min-req').appendChild(minRequirements);
-          // document.querySelector('.rec-req').appendChild(recRequirements);
         });
     });
 };
