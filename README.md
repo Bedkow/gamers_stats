@@ -19,11 +19,12 @@
 - Webpack 5
 
 #### Installation:
-
 `npm install` - install dependencies <br>
 `npm run build` - build production app <br>
 `npm run start` - start a dev server at port *9000*
 
+#### How to use:
+Just type in a videogame title and hit enter. **If you get undesired results, modify the title (for example, use "V" instead of "5").**
 
 
 
